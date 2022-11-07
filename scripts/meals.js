@@ -200,6 +200,6 @@ const data = [
     }
 ]
 
-export const meals = data.map( meal => {
+export const Meals = data.map( meal => {
     return new Meal(meal.id, meal.name, meal.category, meal.servings, meal.mainIngredients, meal.steps, meal.url)
 })
