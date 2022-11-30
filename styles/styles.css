@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto&family=Roboto+Slab&display=swap');
+
+/* 1. General */
+html {
+    box-sizing: border-box;
+    font-family: 'Roboto Slab', serif;
+    font: 700 1em 'Roboto Slab';
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Header */
+
+header {
+    background-color: #DCD3C0;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    max-height: 64px;
+}
+
+#header-logo-container {
+    flex: 1 0 0;
+    margin-left: 50px;
+    max-height: 100%;
+}
+
+#main-navigation {
+    flex: 1 0 0;
+}
+
+.menu {
+    list-style-type: none;
+    display: flex; 
+    flex-flow: row nowrap;
+    align-items: center;
+    height: 100%;
+    margin-left: 200px;
+}
+
+header h3{
+    margin: 0;
+    font-size: 1.5em;
+    color: #624E44;
+}
+
+header li {
+    padding: 0 40px;
+}
+header li a{
+    font-size: 1.25em;
+    color: #686968;
+}
+
+
+/* Main */
+
+main {
+    background: url("../images/main_background.jfif") no-repeat;
+    background-size: 100% auto;
+    min-height: 900px;
+}
+
+#text-container {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+h2 {
+    flex: 1 0 0;
+    margin: 0;
+    padding: 100px 0 0 630px;
+    font-size: 2.5em;
+    color: #D86C2F;
+}
+
+h1 {
+    flex: 1 0 0;
+    margin: 0;
+    padding: 10px 0 0 630px;
+    font-size: 4em;
+    color: #E79853;
+}
+
+#picker-container {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    gap: 5px;
+    width: 500px;
+    margin: 70px 0 0 770px;
+}
+
+#image-container {
+    flex: 1 0 0;
+    display: flex;
+    flex-flow: column nowrap;
+    gap:0;
+    max-height: 340px;
+    border: 3px solid #8A7061;
+}
+
+#image-container img {
+    max-width: 100%;
+    max-height: 300px;
+    border-bottom: 3px solid #8A7061;
+}
+
+#image-container p {
+    color: #8A7061;
+    width: 100% 100%;
+    text-align: center;
+    margin: auto;
+}
+
+#button-container {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100%
+}
+
+button {
+    width: 50%;
+    margin-top: 5px;
+    font-size: 1.5em;
+    color: #FCFCFC;
+    background: #E79853;
+    border-radius: 25px;
+    border-color: #E79853;
+    cursor: pointer;
+}
+
+.fas{
+    width: auto;
+    height: 100%;
+    color: #E79853;
+    cursor: pointer;
+}
+
+
+/* Footer */
+footer {
+    background-color: #DCD3C0;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    max-height: 32px;
+    font-size: 0.75em;
+    font-weight: 300;
+}
