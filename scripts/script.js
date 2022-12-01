@@ -208,14 +208,6 @@ const randomPicker = (lastMeal, ingredientFilter) => {
     return pickedMeal;
 };
 
-// Get Meals Function
-const getAllMealNames = () => {
-    return Meals.map(meal => meal.name);
-};
-
-const getMealObject = (id) => {
-    return Meals.filter(meal => meal.id == id);
-};
 
 const getAllIngredients = (meals) => {
     let ingredients = []
@@ -301,9 +293,6 @@ const loadPage = () => {
             $("#filter-result").text(`There are ${filteredMeals.length} results.`)
         })
     })
-
-    //Disable checkbox
-
 
     //add onclick to filter button
     $("#filter-button").on("click", function () {

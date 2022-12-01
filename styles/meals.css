@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto&family=Roboto+Slab&display=swap');
+
+/* 1. General */
+html {
+    box-sizing: border-box;
+    font-family: 'Roboto Slab', serif;
+    font: 700 1em 'Roboto Slab';
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Header */
+
+header {
+    background-color: #DCD3C0;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    max-height: 64px;
+}
+
+#header-logo-container {
+    flex: 1 0 0;
+    margin-left: 50px;
+    max-height: 100%;
+}
+
+#main-navigation {
+    flex: 1 0 0;
+}
+
+.menu {
+    list-style-type: none;
+    display: flex; 
+    flex-flow: row nowrap;
+    align-items: center;
+    height: 100%;
+    margin-left: 200px;
+}
+
+header h3{
+    margin: 0;
+    font-size: 1.5em;
+    color: #624E44;
+}
+
+header li {
+    padding: 0 40px;
+}
+header li a{
+    font-size: 1.25em;
+    color: #686968;
+}
+
+
+/* Main */
+
+main {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    background: url("../images/meals_background.jpg") no-repeat;
+    background-size: 100%;
+}
+
+
+h1 {
+    flex: 1 0 0;
+    margin: 0;
+    font-size: 4em;
+    padding-top: 80px;
+    color: #FF7700;
+}
+
+#search-bar {
+    width: 70%;
+    display: flex;
+    flex-flow: flex wrap;
+    height: 40px;
+    gap: 30px;
+    margin: 20px 0 40px 0;
+    
+}
+
+#search-input {
+    flex:5 0 0;
+    color: white;
+    font-size: 1.25em;
+    background-color: #998B6F;
+    height: 100%;
+    border-color: transparent;
+}
+
+#submit-button {
+    flex: 1 0 0;
+    font-size: 1.5em;
+    color: white;
+    background-color: #8A7061;
+    height: 100%;
+    border-radius: 10px;
+    border-color: transparent;
+}
+
+/* Meals Summary */
+
+#all-meals{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 80%;
+    gap: 40px;
+}
+
+.meal-summary {
+    display: flex;
+    flex-flow: row wrap;
+    height: 300px;
+    width: 100%;
+    gap: 30px;
+}
+
+.meal-image {
+    flex: 2 0 0;
+}
+
+.meal-image img{
+    width: 100%;
+    height: 300px;
+}
+
+.summary {
+    flex: 3 0 0;
+    border: 5px double #8A7061;
+    background: rgba(232, 225, 204, 0.5);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.summary h3 {
+    font-size: 1.75em;
+    color: #D86C2F;
+    margin-bottom: 10px;
+}
+
+.details {
+    display: flex;
+    flex-flow: column nowrap;
+
+}
+
+.details > div{
+    font-size: 1.25em;
+    font-family: 'Roboto', serif;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 50px;
+}
+
+.details > div > * {
+    margin: 10px 0;
+}
+
+
+.details-text {
+    width: 100px;
+    color: #843D15;
+}
+
+.checked {
+    color: #FF7700;
+}
+
+
+
+/* Footer */
+footer {
+    background-color: #DCD3C0;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    max-height: 32px;
+    font-size: 0.75em;
+    font-weight: 300;
+}

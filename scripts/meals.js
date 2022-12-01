@@ -1,210 +1,176 @@
-// This file store all the meals data in Class Meal
+// Measl Data
 
 class Meal {
-    constructor(id, name, servings, category, mainIngredients, steps, url) {
+    constructor(id, name, servings, difficulty, mainIngredients, prepTime, url) {
         this.id = id; //string
         this.name = name; //string
         this.servings = servings; //number
-        this.category = category; //string
-        this.mainIngredients = mainIngredients; //{name:string, qty:number, unit:string}[]
-        this.steps = steps; //string[]
+        this.difficulty = difficulty; //string
+        this.mainIngredients = mainIngredients; //string[]
+        this.prepTime = prepTime
         this.url = url; //string
     }
 
     //Return path of the image 
     getImageSrc() {
-        return `./images/${this.id}.jpg`;
+        return `../images/meals/meal_${this.id}.webp`;
     }
 
-    //Return ingredients in different portion
-    getQtyWithDifferentServings(_servings) {
-        const ratio = _servings / this.servings;
-        let ingredients = this.mainIngredients.map( ingredient => {
-            ingredient.qty = parseFloat((ingredient.qty*ratio).toFixed(2));
-        })
-        return ingredients;
+    //Retrun the ingredients
+    getAllIngredients() {
+        return this.mainIngredients.sort();
     }
-
-    //Return HTML element for steps
-    renderSteps() {
-        
-    }
-
-    //Return HTML element for ingredients
-    renderIngredients() {
-
-    }
-
 }
 
 const data = [
     {
         id: "1001",
         name: "Pasta Carbonara",
-        category: "Dinner",
         servings: 5,
-        mainIngredients: [
-            {name: "bacons", qty: 0.5, unit: "lb"}, 
-            {name: "pasta", qty: 1, unit: "lb"}, 
-            {name: "eggs", qty: 4, unit: ""},
-            {name: "garlics", qty: 2, unit: ""},
-            {name: "cheese", qty: 1, unit: "cup"}
-        ],
-        steps: ["Heat the pasta water", "Sauté the bacon and garlic",
-        "Beat the eggs and the cheese", "Cook the pasta", "Toss the pasta with bacon",
-        "Add the beaten egg mixture"],
+        difficulty: 2,
+        mainIngredients: ["bacons","pasta","eggs","garlics","cheese"],
+        prepTime: 30,
         url: "https://www.simplyrecipes.com/recipes/spaghetti_alla_carbonara/"
     },
     {
         id: "1002",
         name: "Hamburger and Macaroni",
-        category: "Dinner",
         servings: 4,
-        mainIngredients: [
-            {name: "ground beef", qty: 1, unit: "lb"}, 
-            {name: "pasta", qty: 2, unit: "cup"}, 
-            {name: "onions", qty: 1, unit: ""},
-            {name: "tomatoes", qty: 1, unit: ""},
-        ],
-        steps: ["Start cooking the pasta", "Brown the beef and onions",
-        "Add the seasonings and tomatoes", "Drain the pasta", "Add the cooked pasta"],
+        difficulty: 2,
+        mainIngredients: ["ground beef", "pasta", "onions", "tomatoes"],
+        prepTime: 28,
         url: "https://www.simplyrecipes.com/recipes/hamburger_and_macaroni/"
     },
     {
         id: "1003",
         name: "Classic Patty Melt",
-        category: "Dinner",
         servings: 2,
-        mainIngredients: [
-            {name: "ground beef", qty: 8, unit: "ounce"}, 
-            {name: "bread", qty: 2, unit: "slice"}, 
-            {name: "onions", qty: 4, unit: ""},
-            {name: "cheese", qty: 4, unit: "slice"},
-        ],
-        steps: ["Cook the onions", "Cook the patties",
-        "Butter your bread", "Build your sandwiches in the skillet", "Cook the sandwiches"],
+        difficulty: 4,
+        mainIngredients: ["ground beef", "bread", "onions", "cheese"],
+        prepTime: 50,
         url: "https://www.simplyrecipes.com/recipes/classic_patty_melt/"
     },
     {
         id: "1004",
         name: "Juicy Lucy Hamburger",
-        category: "Dinner",
         servings: 6,
-        mainIngredients: [
-            {name: "ground beef", qty: 2, unit: "lb"}, 
-            {name: "bread", qty: 6, unit: "buns"}, 
-            {name: "pickle", qty: 24, unit: "slice"},
-            {name: "cheese", qty: 6, unit: "slice"},
-            {name: "garlics", qty: 2, unit: "teaspoons"},
-        ],
-        steps: ["Prepare the cheese", "Divide ground chuck and form patties",
-        "Stuff the patties with cheese", "Place burgers in fridge to set up", "Prepare the grill",
-        "Season the burgers", "Grill the burger buns", "Assemble the burgers"],
+        difficulty: 4,
+        mainIngredients: ["ground beef", "bread", "pickle", "cheese", "garlics"],
+        prepTime: 57,
         url: "https://www.simplyrecipes.com/juicy-lucy-hamburger-recipe-5189528"
     },
     {
         id: "1005",
         name: "Bacon Cheeseburger",
-        category: "Dinner",
         servings: 6,
-        mainIngredients: [
-            {name: "bacons", qty: 15, unit: "slices"}, 
-            {name: "ground beef", qty: 2, unit: "lb"}, 
-            {name: "onions", qty: 0.25, unit: ""},
-            {name: "bread", qty: 6, unit: "buns"}, 
-            {name: "cheese", qty: 12, unit: "slices"}
-        ],
-        steps: ["Preheat the grill", "Prepare the cheese, chop the bacon, make burger mixture",
-        "Form the patties", "Grill the bacon and set aside", "Prepare grill for burgers",
-        "Grill the burgers and add the cheese", "Grill the buns", "Assemble the burgers"],
+        difficulty: 2,
+        mainIngredients: ["bacons", "ground beef", "onions", "bread", "cheese"],
+        prepTime: 30,
         url: "https://www.simplyrecipes.com/bacon-cheeseburger-recipe-5189497"
     },
     {
         id: "1006",
         name: "Portobello Mushroom Burger",
-        category: "Dinner",
         servings: 4,
-        mainIngredients: [
-            {name: "spinach", qty: 4, unit: "ounce"}, 
-            {name: "mushroom", qty: 4, unit: ""}, 
-            {name: "onion", qty: 1, unit: ""},
-            {name: "bread", qty: 4, unit: "buns"}, 
-            {name: "tomato", qty: 8, unit: "ounce"}
-        ],
-        steps: ["Prepare the grill", "Wilt the spinach",
-        "Clean the mushrooms and brush with oil", "Grill the onion rounds, mushroom caps, and buns",
-        "Assemble"],
+        difficulty: 3,
+        mainIngredients: ["spinach", "mushrooms", "onion", "bread", "tomato"],
+        prepTime: 30,
         url: "https://www.simplyrecipes.com/recipes/portobello_mushroom_burger/"
     },
     {
         id: "1007",
         name: "Lemon Chicken",
-        category: "Dinner",
         servings: 5,
-        mainIngredients: [
-            {name: "chicken", qty: 4, unit: "lb"}, 
-            {name: "lemons", qty: 2, unit: ""}, 
-            {name: "garlics", qty: 2, unit: ""},
-        ],
-        steps: ["Marinate chicken", "Place chicken in baking dish, brush with butter",
-        "Bake and baste with marinade", "Let the chicken rest", "Save meat juices to serve with chicken"],
+        difficulty: 5,
+        mainIngredients: ["chicken", "lemons", "garlics"],
+        prepTime: 115,
         url: "https://www.simplyrecipes.com/recipes/lemon_chicken/"
     },
     {
         id: "1008",
         name: "Crispy Cheese and Mushroom Quesadillas",
-        category: "Dinner",
         servings: 5,
-        mainIngredients: [
-            {name: "mushrooms", qty: 1, unit: "lb"}, 
-            {name: "tortillas", qty: 10, unit: ""}, 
-            {name: "garlics", qty: 1, unit: ""},
-            {name: "cheese", qty: 1.5, unit: "cup"},
-            {name: "salsa", qty: 0.5, unit: "cup"}
-        ],
-        steps: ["Cook the mushrooms", "Assemble and cook the quesadillas", "Serve"],
+        difficulty: 1,
+        mainIngredients: ["mushrooms", "tortillas", "garlics", "cheese", "salsa"],
+        prepTime: 20,
         url: "https://www.simplyrecipes.com/recipes/crispy_cheese_and_mushroom_quesadillas/"
     },
     {
         id: "1009",
         name: "Apple Chicken Quesadilla",
-        category: "Dinner",
         servings: 2,
-        mainIngredients: [
-            {name: "chicken", qty: 1, unit: "cup"}, 
-            {name: "tortillas", qty: 4, unit: ""}, 
-            {name: "apple", qty: 1, unit: ""},
-            {name: "cheese", qty: 0.25, unit: "lb"},
-            {name: "salsa", qty: 0.25, unit: "cup"}
-        ],
-        steps: ["Heat the tortilla until puffy", "Add cheese and chicken, fold over",
-        "Add apple slices and salsa, cut into triangles", "Repeat with the remaining tortillas"],
+        difficulty: 1,
+        mainIngredients: ["chicken", "tortillas", "apple", "cheese", "salsa"],
+        prepTime: 10,
         url: "https://www.simplyrecipes.com/recipes/apple_chicken_quesadilla/"
     },
     {
         id: "1010",
         name: "Vegan Mushroom Stroganoff",
-        category: "Dinner",
         servings: 6,
-        mainIngredients: [
-            {name: "onion", qty: 1, unit: ""},
-            {name: "pasta", qty: 1, unit: "lb"}, 
-            {name: "mushrooms", qty: 1, unit: "lb"}, 
-            {name: "garlics", qty: 3, unit: ""},
-            {name: "coconut milk", qty: 0.5, unit: "cup"},
-            {name: "vegetable stock", qty: 1, unit: "cup"}
-        ],
-        steps: ["Cook the pasta", "Cook the vegetables",
-        "Add the flour, wine, broth, and Worcestershire sauce", "Stir in the coconut milk", "Serve"],
+        difficulty: 3,
+        mainIngredients: ["onion", "pasta", "mushrooms", "garlics"],
+        prepTime: 45,
         url: "https://www.simplyrecipes.com/vegan-mushroom-stroganoff-recipe-5216638"
     }
 ]
 
 const Meals = data.map( meal => {
-    return new Meal(meal.id, meal.name, meal.category, meal.servings, meal.mainIngredients, meal.steps, meal.url)
+    return new Meal(meal.id, meal.name,  meal.servings, meal.difficulty, meal.mainIngredients, meal.prepTime, meal.url)
 })
 
-export {
-    Meal,
-    Meals
+
+
+// ## Functions //
+const getSearchedMeal = (searchKey) => {
+    if (searchKey == "") return Meals;
+    let matched = Meals.filter( meal => {
+        // search searchKey on Name
+        let regex = new RegExp(searchKey.toLowerCase())
+        if (meal.name.toLowerCase().match(regex)) return true
+
+        // search searchKey on mainIngredients
+        return meal.mainIngredients.some( ingredient => {
+            return ingredient.toLowerCase().match(regex)
+        })
+    })
+    return matched
 }
+
+const addMealSummary = (meal) => {
+    const mealSummary = `<div class="meal-summary" id="summary-${meal.id}"></div>`
+    $('#all-meals').append(mealSummary);
+    const mealImage = `<div class="meal-image"><img src="${meal.getImageSrc()}" alt="An Image of ${meal.name}"></div>`
+    $(`#summary-${meal.id}`).append(mealImage)
+    const summary = `<div class="summary" id="sum-${meal.id}"></div>`
+    $(`#summary-${meal.id}`).append(summary)
+    $(`#sum-${meal.id}`).append(`<h3>${meal.name}</h3>`)
+
+    const details = `<div class="details" id="details-${meal.id}"></div>`
+    $(`#sum-${meal.id}`).append(details)
+
+    let detailsDiff = `<div class="details-diff"><p class="details-text">Difficulty</p>` + `<div class="stars">`
+    detailsDiff = detailsDiff + `<span class="fa fa-star checked"></span>`.repeat(meal.difficulty) + `<span class="fa fa-star"></span>`.repeat(5-meal.difficulty) + `</div></div>`
+    $(`#details-${meal.id}`).append(detailsDiff)
+
+    const detailsPrep = `<div class="details-prep"><p class="details-text">Prep Time</p><p>${meal.prepTime} mins</p></div>`
+    $(`#details-${meal.id}`).append(detailsPrep)
+
+    const detailServings = `<div class="details-servings"><p class="details-text">Servings</p><p>${meal.servings} People</p></div>`
+    $(`#details-${meal.id}`).append(detailServings)
+
+    const detailIngredients = `<div class="details-ingredient"><p class="details-text">Ingredients</p><p>${meal.mainIngredients.join(", ")}</p></div>`
+    $(`#details-${meal.id}`).append(detailIngredients)
+}
+
+// load page
+
+const loadPage = () => {
+
+    const searchKey = "pasta";
+
+    const filteredMeal = getSearchedMeal(searchKey)
+    filteredMeal.slice(0,5).map(meal => addMealSummary(meal))
+}
+
+$(window).on("load", loadPage)
