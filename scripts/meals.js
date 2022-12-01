@@ -163,14 +163,45 @@ const addMealSummary = (meal) => {
     $(`#details-${meal.id}`).append(detailIngredients)
 }
 
+const addPagination = (totalItems, itemPerPage, currentPage) => {
+    const numberOfPage = Math.ceil(totalItems.length / itemPerPage)
+    if (numberOfPage == 1) return
+    const pagination = `<div id="pagination"></div>`
+    $('#all-meals').append(pagination);
+
+    for (let i=0; i<numberOfPage; i++) {
+        if ( currentPage == i+1) {
+            $('#pagination').append(`<div class="page page--active" id="page-${i+1}">${i+1}</div>`);
+        } else {
+            $('#pagination').append(`<div class="page" id="page-${i+1}">${i+1}</div>`);
+            $(`#page-${i+1}`).on("click", function(){
+                $('#all-meals').empty();
+                addPagination(totalItems, itemPerPage, i+1)
+                totalItems.slice(i*5, (i+1)*5).map(meal => addMealSummary(meal))
+            })
+        }
+    }
+}
+
+const addSearchBarEvent = () => {
+    $("#search-bar").on("submit", function(event){
+        const filteredMeal = getSearchedMeal($(this).find("#search-input").val())
+        $('#all-meals').empty();
+        addPagination(filteredMeal, itemPerPage, 1)
+        filteredMeal.slice(0,5).map(meal => addMealSummary(meal))
+        event.preventDefault();
+        return false;
+    })
+}
+
 // load page
-
+const itemPerPage = 5
 const loadPage = () => {
-
-    const searchKey = "pasta";
-
+    const searchKey = "";
     const filteredMeal = getSearchedMeal(searchKey)
+    addPagination(filteredMeal, itemPerPage, 1)
     filteredMeal.slice(0,5).map(meal => addMealSummary(meal))
+    addSearchBarEvent()
 }
 
 $(window).on("load", loadPage)

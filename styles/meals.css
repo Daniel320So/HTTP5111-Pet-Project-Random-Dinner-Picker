@@ -115,6 +115,7 @@ h1 {
     height: 100%;
     border-radius: 10px;
     border-color: transparent;
+    cursor: pointer;
 }
 
 /* Meals Summary */
@@ -187,7 +188,31 @@ h1 {
     color: #FF7700;
 }
 
+/* Pagination */
 
+#pagination {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.page {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: #624E44;
+    border: 1px solid #624E44;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.page--active {
+    background-color: #624E44;
+    color: white;
+    cursor: default;
+}
 
 /* Footer */
 footer {

@@ -305,8 +305,6 @@ const loadPage = () => {
         }
     })
 
-    console.log(ingredients)
-
     //add onclick to pick button
     $("#pick-button").on("click", function () {
         pickedMeal = randomPicker(pickedMeal, ingredientFilter)
