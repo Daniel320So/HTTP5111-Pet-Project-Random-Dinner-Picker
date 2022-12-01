@@ -1,6 +1,6 @@
 // This file store all the meals data in Class Meal
 
-export class Meal {
+class Meal {
     constructor(id, name, servings, category, mainIngredients, steps, url) {
         this.id = id; //string
         this.name = name; //string
@@ -200,6 +200,11 @@ const data = [
     }
 ]
 
-export const Meals = data.map( meal => {
+const Meals = data.map( meal => {
     return new Meal(meal.id, meal.name, meal.category, meal.servings, meal.mainIngredients, meal.steps, meal.url)
 })
+
+export {
+    Meal,
+    Meals
+}
