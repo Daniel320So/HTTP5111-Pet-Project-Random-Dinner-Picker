@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>MealPicker - Pick your dinner now!</title>
+        <link rel="stylesheet" type="text/css" href="../styles/new.css">
+        <script src="https://kit.fontawesome.com/7293c2225e.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="../scripts/data.js"></script>
+        <script src="../scripts/new.js"></script>
+    </head>
+    <body>
+        <header id="header">  
+            <!-- Site Logo -->  
+            <a href="../index.html" class="header-item" id="header-logo-container">
+                <h3>MealPicker</h3>
+            </a>
+            <!-- Main Navigation-->
+            <nav class="header-item" id="main-navigation">
+                <ul class="menu">
+                    <li><a href="../index.html">Pick</a></li>
+                    <li><a href="./meals.html">Meals</a></li>
+                    <li><a href="#">New</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h1>Add Your Receipes</h1>
+            <form id="form-add">
+                <div id="form-input">
+                    <div id="form-left">
+                        <div class="input-line">
+                            <label for="input-name">Name</label>
+                            <input type="text" id="input-name" name="input-name">
+                        </div>
+                        <div class="input-line" id="diff-container">
+                            <label for="input-diff">Difficulty</label>
+                            <div id="star-container">
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                        </div>
+                        <div class="input-line" id="img-container">
+                            <p>Select Image</p>
+                        </div>
+                    </div>
+                    <div id="form-right">
+                        <div class="input-line">
+                            <label for="input-prep">Prep Time</label>
+                            <input type="text" id="input-prep" name="input-prep">
+                        </div>
+                        <div class="input-line">
+                            <label for="input-serve">Servings</label>
+                            <input type="number" id="input-serve" name="input-serve">
+                        </div>
+                        <div class="input-line">
+                            <label for="input-url">Receipe Url</label>
+                            <input type="text" id="input-url" name="input-url">
+                        </div>
+                        <div class="input-line" id="ingredients-line-1">
+                            <label for="input-ing">Ingredients</label>
+                            <div id="input-container">
+                                <input type="text" list="options-list" id="input-ing" name="input-ing">
+                                <button class="button" id="button-add">Add</button>
+                                <datalist id="options-list"></datalist >
+                            </div>
+                        </div>
+                        <div class="input-line" id="ingredients-line-2">
+                            <div></div>
+                            <div id="ingredients-container">
+                                <p class="ingredient">Ground Beef</p>
+                                <p class="ingredient">Beacon</p>
+                                <p class="ingredient">Pasta</p>
+                                <p class="ingredient">Eggs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <input class="button" type="submit" id="submit-button" value="Add Meal">
+            </form>
+        </main>
+        <footer>
+            <p>Disclaimer: All recipes and images belong to www.simplyrecipes.com</p>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto&family=Roboto+Slab&display=swap');
+
+/* 1. General */
+html {
+    box-sizing: border-box;
+    font-family: 'Roboto Slab', serif;
+    font: 700 1em 'Roboto Slab';
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Header */
+
+header {
+    background-color: #DCD3C0;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    max-height: 64px;
+}
+
+#header-logo-container {
+    flex: 1 0 0;
+    margin-left: 50px;
+    max-height: 100%;
+}
+
+#main-navigation {
+    flex: 1 0 0;
+}
+
+.menu {
+    list-style-type: none;
+    display: flex; 
+    flex-flow: row nowrap;
+    align-items: center;
+    height: 100%;
+    margin-left: 200px;
+}
+
+header h3{
+    margin: 0;
+    font-size: 1.5em;
+    color: #624E44;
+}
+
+header li {
+    padding: 0 40px;
+}
+header li a{
+    font-size: 1.25em;
+    color: #686968;
+}
+
+
+/* Main */
+
+main {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    background: url("../images/new_background.jpg") no-repeat;
+    background-size: 100%;
+}
+
+
+h1 {
+    flex: 1 0 0;
+    margin: 0;
+    font-size: 4em;
+    padding-top: 50px;
+    color: #FF7700;
+}
+
+/* Form */
+
+form {
+    font-size: 1.5em;
+    color: #843D15;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+#form-input {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    width: 80%;
+    margin: 50px 0;
+}
+
+.input-line {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.input-line > * {
+    flex: 1 0 0;
+}
+
+.input-line input {
+    font-size: 1em;
+    flex: 2 0 0;
+    height: 35px;
+    background: #D9D9D9;
+    border: none;
+}
+
+.input-line input:focus {
+    outline: none !important;
+    border: 2px solid #E79853;
+}
+
+/* Form Left */
+#form-left {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    width: 45%
+}
+
+#star-container {
+    flex: 2 0 0;
+}
+
+span {
+    color: #D9D9D9;
+    cursor: pointer;
+}
+
+.checked {
+    color: #FF7700;
+}
+
+#img-container {
+    width: 100%;
+    height: 300px;
+    color: #8A7061;
+    font-size: 1.5em;
+    text-align: center;
+    background: rgba(232, 225, 204, 0.5);
+    border: 3px solid #8A7061;
+    cursor: pointer;
+}
+
+/* Form Right */
+#form-right {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    width: 45%
+}
+
+#diff-container {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+
+
+#input-container {
+    position: relative;
+    display: flex;
+    flex-flow: row;
+    gap: 20px;
+    flex: 2 0 0;
+    justify-content: flex-start;
+
+}
+
+#input-ing {
+    width: 70%;
+}
+
+#button-add {
+    width: 20%;
+}
+
+.button {
+    font-size: 1em;
+    color: #FCFCFC;
+    background: #E79853;
+    border-radius: 25px;
+    border-color: transparent;
+}
+
+
+
+#options-list {
+    position: absolute;
+    width: 70%;
+    height: 100%;
+}
+
+#ingredients-line-1 {
+    padding-bottom: 0;
+}
+
+#ingredients-line-2 {
+    padding: 0;
+}
+#ingredients-container {
+    flex: 2 0 0;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 5px;
+}
+
+.ingredient {
+    font-size: 0.75em;
+    margin: 0;
+    padding: 0 5px;
+    color: #E79853;
+    border: 2px solid #E79853;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background-color: #DCD3C0;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    max-height: 32px;
+    font-size: 0.75em;
+    font-weight: 300;
+}
