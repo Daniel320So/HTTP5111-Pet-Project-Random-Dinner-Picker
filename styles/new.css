@@ -177,8 +177,6 @@ span {
     flex-flow: row wrap;
 }
 
-
-
 #input-container {
     position: relative;
     display: flex;
@@ -203,14 +201,7 @@ span {
     background: #E79853;
     border-radius: 25px;
     border-color: transparent;
-}
-
-
-
-#options-list {
-    position: absolute;
-    width: 70%;
-    height: 100%;
+    cursor: pointer;
 }
 
 #ingredients-line-1 {
@@ -228,6 +219,7 @@ span {
 }
 
 .ingredient {
+    position: relative;
     font-size: 0.75em;
     margin: 0;
     padding: 0 5px;
@@ -235,6 +227,24 @@ span {
     border: 2px solid #E79853;
     border-radius: 25px;
     cursor: pointer;
+}
+
+.ingredient:hover {
+    color: white;
+    border: 2px solid white;
+    background: #E79853;
+}
+
+.ingredient:hover .cancel-icon{
+    display: block !important;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+}
+
+.cancel-icon {
+    display: none !important;
 }
 
 /* Footer */

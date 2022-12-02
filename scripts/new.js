@@ -22,6 +22,36 @@ const updateStarsClass = (rating) => {
     })
 }
 
+const addIngredient = (event) => {
+    const userInput = $("#input-ing").val().trim()
+    event.preventDefault()
+    if (!addedIngredients.find( v=> v == userInput) && userInput !== "") {
+        const newIndex = addedIngredients.length;
+        addedIngredients.push(userInput)
+        const element = `<p class="ingredient" id="ing-${newIndex}">${userInput}</p>`
+        $("#ingredients-container").append(element)
+        // Add on hover to ingredient element
+        $(`#ing-${newIndex}`).hover(function() {
+            $(this).text("Remove")
+        })
+
+        // Add mouse out to ingredient element
+        $(`#ing-${newIndex}`).on("mouseout", function() {
+            $(this).text(addedIngredients[$(this)[0].id.split("-")[1]])
+        })
+
+        // Add on click to ingredient element
+        $(`#ing-${newIndex}`).on("click", function() {
+            const index = addedIngredients.indexOf(userInput);
+            addedIngredients.splice(index, 1);
+            $(this).remove()
+        })
+
+        // Remove user input
+        $("#input-ing").val("");
+    }
+}
+
 // load page
 const loadPage = () => {
 
@@ -41,15 +71,7 @@ const loadPage = () => {
     })
 
     // Add on click to Add Ingredient button
-    $("#button-add").on("click", function(event){
-        const userInput = $("#input-ing").val()
-        event.preventDefault()
-        if (!addedIngredients.find( v=> v == userInput)) {
-            addedIngredients.push(userInput)
-            const element = `<p class="ingredient">${userInput}</p>`
-            $("#ingredients-container").append(element)
-        }
-    })
+    $("#button-add").on("click",addIngredient)
 
 
 }
