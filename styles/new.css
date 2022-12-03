@@ -156,13 +156,33 @@ span {
 #img-container {
     width: 100%;
     height: 300px;
+    padding: 0;
     color: #8A7061;
     font-size: 1.5em;
     text-align: center;
     background: rgba(232, 225, 204, 0.5);
     border: 3px solid #8A7061;
+}
+
+#img-container label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
     cursor: pointer;
 }
+
+
+#img-container input, #display-image {
+    display: none;
+}
+
+.image-show {
+    width: 100%;
+    height: 100%;
+}
+
 
 /* Form Right */
 #form-right {
@@ -178,7 +198,6 @@ span {
 }
 
 #input-container {
-    position: relative;
     display: flex;
     flex-flow: row;
     gap: 20px;
@@ -209,20 +228,25 @@ span {
 }
 
 #ingredients-line-2 {
+    align-items: flex-start;
+    min-height: 60px;
     padding: 0;
 }
 #ingredients-container {
     flex: 2 0 0;
     display: flex;
     flex-flow: row wrap;
+    justify-content: flex-start;
+    padding: 10px;
     gap: 5px;
 }
 
 .ingredient {
-    position: relative;
+    text-align: center;
+    min-width: 100px;
     font-size: 0.75em;
     margin: 0;
-    padding: 0 5px;
+    padding: 5px;
     color: #E79853;
     border: 2px solid #E79853;
     border-radius: 25px;
@@ -233,18 +257,6 @@ span {
     color: white;
     border: 2px solid white;
     background: #E79853;
-}
-
-.ingredient:hover .cancel-icon{
-    display: block !important;
-    position: absolute;
-    top: 0;
-    right: 0;
-    color: white;
-}
-
-.cancel-icon {
-    display: none !important;
 }
 
 /* Footer */

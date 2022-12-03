@@ -1,12 +1,13 @@
 // ## Declare Global Variables //
 let difficulty = 0;
 let addedIngredients = []
+let newImage;
 
 // ## Functions //
 // Add Menu Function
-const addMealObject = (meal) => {
+const addMealObject = (name, servings, difficulty, mainIngredients, prepTime, url) => {
     const nextId = mealsData.length;
-    mealsData.push(new Meal(nextId, meal.name, meal.category, meal.servings, meal.mainIngredients, meal.steps, meal.url));
+    mealsData.push(new Meal(nextId, name, servings, difficulty, mainIngredients, prepTime, url));
     return true
 };
 
@@ -22,35 +23,37 @@ const updateStarsClass = (rating) => {
     })
 }
 
-const addIngredient = (event) => {
-    const userInput = $("#input-ing").val().trim()
+const addIngredient = (event, input) => {
+    const userInput = input? input : $("#input-ing").val().trim().toLowerCase()
+    const eleId = userInput.replace(" ", "-")
     event.preventDefault()
-    if (!addedIngredients.find( v=> v == userInput) && userInput !== "") {
-        const newIndex = addedIngredients.length;
-        addedIngredients.push(userInput)
-        const element = `<p class="ingredient" id="ing-${newIndex}">${userInput}</p>`
-        $("#ingredients-container").append(element)
+    if (!addedIngredients.find( v=> v.toLowerCase() == userInput) && userInput !== "") {
+        addedIngredients.push(userInput);
+        const element = `<p class="ingredient" id="ing-${eleId}">${userInput}</p>`;
+        $("#ingredients-container").append(element);
         // Add on hover to ingredient element
-        $(`#ing-${newIndex}`).hover(function() {
-            $(this).text("Remove")
-        })
+        $(`#ing-${eleId}`).on("mouseenter", function() {
+            const width = $(this).width();
+            $(this).text("Remove");
+            $(this).width(width);
+        });
 
         // Add mouse out to ingredient element
-        $(`#ing-${newIndex}`).on("mouseout", function() {
-            $(this).text(addedIngredients[$(this)[0].id.split("-")[1]])
-        })
+        $(`#ing-${eleId}`).on("mouseout", function() {
+            $(this).text($(this)[0].id.slice(4).replace("-", " "));
+        });
 
         // Add on click to ingredient element
-        $(`#ing-${newIndex}`).on("click", function() {
+        $(`#ing-${eleId}`).on("click", function() {
             const index = addedIngredients.indexOf(userInput);
             addedIngredients.splice(index, 1);
             $(this).remove()
-        })
+        });
 
         // Remove user input
         $("#input-ing").val("");
     }
-}
+};
 
 // load page
 const loadPage = () => {
@@ -63,6 +66,25 @@ const loadPage = () => {
         })
     });
 
+    // Add on load to image upload 
+    $("#input-image").change(function(event){
+
+        // Show uploaded Image
+        newImage = event.target.files[0];
+        const reader = new FileReader();
+        reader.addEventListener('load', (event) => {
+            let imageSrc = event.target.result;
+            $("#display-image").attr("src", imageSrc)
+            $("#display-image").attr("alt", newImage.name)
+            $("#display-image").addClass("image-show")
+            $("#display-image").show();
+            $("#select-text").hide();
+        });
+        reader.readAsDataURL(newImage);
+
+
+    })
+
     // Add Ingredients to datalist
     const ingredients = getAllIngredients()
     ingredients.map( ingredient => {
@@ -71,9 +93,23 @@ const loadPage = () => {
     })
 
     // Add on click to Add Ingredient button
-    $("#button-add").on("click",addIngredient)
+    $("#button-add").on("click", addIngredient)
 
+    // Submit Form
+    const submitForm = (event) => {
+        event.preventDefault();
 
+        // Load data from Form
+        const name = $("#input-name").val();
+        const prepTime = $("#input-prep").val();
+        const servings = $("#input-serve").val();
+        const url = $("#input-url").val();
+        const img = $("#input-image").val();
+
+        console.log(name, difficulty, prepTime, servings, url, img, addedIngredients)
+        // addMealObject()
+    }
+    $("#submit-button").on("click", submitForm)
 }
 
 $(window).on("load", function (){
