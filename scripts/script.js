@@ -41,9 +41,10 @@ const loadPage = () => {
     //render filter
     const ingredients = getAllIngredients()
     ingredients.map( ingredient => {
-        let checkbox = `<div class="checkbox"><input type="checkbox" id="${ingredient}" name="${ingredient}" value="${ingredient}"><label for="${ingredient}"> ${ingredient}</label></div>`;
+        let ingredientId = ingredient.replace(" ", "-")
+        let checkbox = `<div class="checkbox"><input type="checkbox" id="${ingredientId}" name="${ingredient}" value="${ingredient}"><label for="${ingredient}"> ${ingredient}</label></div>`;
         $('#checkbox-container').append(checkbox);
-        $(`#${ingredient}`).change(function() {
+        $(`#${ingredientId}`).change(function() {
             if(this.checked) {
                 ingredientFilter.push(ingredient)
             } else {
@@ -55,7 +56,7 @@ const loadPage = () => {
 
             //Disable checkbox with no options
             $(".checkbox").each( function() {
-                if (availableIngredients.some(ingredient => $(this).find("input")[0].id == ingredient)) {
+                if (availableIngredients.some(ingredient => $(this).find("input")[0].id == ingredient.replace(" ", "-"))) {
                     $(this).find("input").attr("disabled", false);
                 } else{
                     $(this).find("input").attr("disabled", true);
