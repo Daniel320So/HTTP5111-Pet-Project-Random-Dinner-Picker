@@ -113,13 +113,13 @@ h1 {
     flex-flow: column nowrap;
     gap:0;
     width: 100%;
-    max-height: 340px;
+    height: 340px;
     border: 3px solid #8A7061;
 }
 
 #image-container img {
     max-width: 100%;
-    max-height: 300px;
+    height: 300px;
     border-bottom: 3px solid #8A7061;
     cursor: pointer;
 }

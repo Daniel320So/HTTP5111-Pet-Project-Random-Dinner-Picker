@@ -5,6 +5,7 @@ const itemPerPage = 5
 const getSearchedMeal = (searchKey) => {
     if (searchKey == "") return mealsData;
     let matched = mealsData.filter( meal => {
+        
         // search searchKey on Name
         let regex = new RegExp(searchKey.toLowerCase())
         if (meal.name.toLowerCase().match(regex)) return true

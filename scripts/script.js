@@ -1,7 +1,6 @@
 // ## Functions //
 
-// Picker Function
-// Filtering is on mainIngredient & it is optional
+// Picker Function Filtering is on mainIngredient & it is optional
 const randomPicker = (lastMeal, ingredientFilter) => {
     const filteredmealsData = getFilteredMeal(ingredientFilter)
     const length = filteredmealsData.length; 

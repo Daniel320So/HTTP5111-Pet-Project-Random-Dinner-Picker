@@ -7,9 +7,9 @@ class Meal {
         this.id = id; //string
         this.name = name; //string
         this.servings = servings; //number
-        this.difficulty = difficulty; //string
+        this.difficulty = difficulty; //number from 1 - 5
         this.mainIngredients = mainIngredients; //string[]
-        this.prepTime = prepTime
+        this.prepTime = prepTime //number in minutes
         this.url = url; //string
     }
 
@@ -125,7 +125,7 @@ const defaultMealsData = data.map( meal => {
     return new Meal(meal.id, meal.name,  meal.servings, meal.difficulty, meal.mainIngredients, meal.prepTime, meal.url)
 })
 
-// Functions
+// ## Functions //
 
 // Get Data from local storage
 const getMealDataFromLocalStorage = () => {
@@ -154,7 +154,6 @@ const setMealsInLocalStorage = () => {
 }
 
 // Global Functions for Meals
-
 const getAllIngredients = (meals) => {
     let ingredients = []
     if (!meals) meals = mealsData;
@@ -163,7 +162,7 @@ const getAllIngredients = (meals) => {
             if (!ingredients.find(v => v == ingredient)) ingredients.push(ingredient)
         })
     })
-    return ingredients;
+    return ingredients.sort();
 }
 
 //Load Data
