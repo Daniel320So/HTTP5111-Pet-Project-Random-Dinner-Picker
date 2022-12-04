@@ -51,9 +51,9 @@ const addPagination = (totalItems, itemPerPage, currentPage) => {
 
     for (let i=0; i<numberOfPage; i++) {
         if ( currentPage == i+1) {
-            $('#pagination').append(`<div class="page page--active" id="page-${i+1}">${i+1}</div>`);
+            $('#pagination').append(`<div class="page page--active" id="page-${i+1}"><p>${i+1}</p></div>`);
         } else {
-            $('#pagination').append(`<div class="page" id="page-${i+1}">${i+1}</div>`);
+            $('#pagination').append(`<div class="page" id="page-${i+1}"><p>${i+1}</p></div>`);
             $(`#page-${i+1}`).on("click", function(){
                 $('#all-meals').empty();
                 addPagination(totalItems, itemPerPage, i+1)

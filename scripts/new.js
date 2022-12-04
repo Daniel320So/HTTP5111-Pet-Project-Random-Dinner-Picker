@@ -6,14 +6,14 @@ let newImage;
 // ## Functions //
 // Add Menu Function
 const addMealObject = (name, servings, difficulty, mainIngredients, prepTime, url) => {
-    const nextId = mealsData.length;
-    mealsData.push(new Meal(nextId, name, servings, difficulty, mainIngredients, prepTime, url));
-    return true
+    const nextId = 1001 + mealsData.length;
+    const newMeal = new Meal(nextId, name, servings, difficulty, mainIngredients, prepTime, url)
+    mealsData.push(newMeal);
+    return newMeal
 };
 
 //update stars 
 const updateStarsClass = (rating) => {
-    console.log("clicked", rating)
     $("#star-container").find("span").each( function(i) {
         if ( i <= rating ) {
             $(this).addClass("checked")
@@ -73,16 +73,14 @@ const loadPage = () => {
         newImage = event.target.files[0];
         const reader = new FileReader();
         reader.addEventListener('load', (event) => {
-            let imageSrc = event.target.result;
-            $("#display-image").attr("src", imageSrc)
+            newImage.imageSrc = event.target.result;
+            $("#display-image").attr("src", newImage.imageSrc)
             $("#display-image").attr("alt", newImage.name)
             $("#display-image").addClass("image-show")
             $("#display-image").show();
             $("#select-text").hide();
         });
         reader.readAsDataURL(newImage);
-
-
     })
 
     // Add Ingredients to datalist
@@ -104,10 +102,13 @@ const loadPage = () => {
         const prepTime = $("#input-prep").val();
         const servings = $("#input-serve").val();
         const url = $("#input-url").val();
-        const img = $("#input-image").val();
 
-        console.log(name, difficulty, prepTime, servings, url, img, addedIngredients)
-        // addMealObject()
+        // add Meal
+        let newMeal = addMealObject(name, servings, difficulty, addedIngredients, prepTime, url);
+
+        // Store img in local storage
+        localStorage.setItem(`meal_${newMeal.id}`, newImage.imageSrc);
+        setMealsInLocalStorage();
     }
     $("#submit-button").on("click", submitForm)
 }

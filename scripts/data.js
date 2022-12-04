@@ -15,7 +15,11 @@ class Meal {
 
     //Return path of the image 
     getImageSrc() {
-        return `../images/meals/meal_${this.id}.webp`;
+        if (defaultMealsData.find( meal => meal.id == this.id)) {
+            return `../images/meals/meal_${this.id}.webp`;
+        } else {
+            return localStorage.getItem(`meal_${this.id}`)
+        }
     }
 
     //Retrun the ingredients
@@ -123,34 +127,18 @@ const defaultMealsData = data.map( meal => {
 
 // Functions
 
-// Get Cookies
-const getCookie = (cName) => {
-    let name = cName + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for(let i = 0; i <ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
-  }
+// Get Data from local storage
+const getMealDataFromLocalStorage = () => {
 
-const getMealDataFromCookie = () => {
     let data = []
-    let cookieVal = getCookie("Meals")
+    let dataVal = localStorage.getItem("mealsData")
 
     // Return null if empty
-    if (!cookieVal) return null;
-
-    let cookieArr = cookieVal.split("},")
-    cookieArr.map( (meal,i) => {
+    if (!dataVal) return null;    
+    let dataArr = dataVal.split("},")
+    dataArr.map( (meal,i) => {
         let obj;
-        if ( i != cookieArr.length - 1) {
+        if ( i != dataArr.length - 1) {
             obj = JSON.parse(meal+"}")
         } else {
             obj = JSON.parse(meal)
@@ -161,14 +149,8 @@ const getMealDataFromCookie = () => {
     return data;
 }
 
-// Set Cookies
-const setCookie = (cName, cVal, expireDays) => {
-    const expire = new Date(new Date().getTime() + (expireDays*24*60*60*1000))
-    document.cookie = cName + "=" + cVal + "; expires=" + expire 
-}
-
-const setMealsInCookie = () => {
-    setCookie("Meals", mealsData.map( meal => JSON.stringify(meal)))
+const setMealsInLocalStorage = () => {
+    localStorage.setItem("mealsData", mealsData.map( meal => JSON.stringify(meal)));
 }
 
 // Global Functions for Meals
@@ -187,13 +169,12 @@ const getAllIngredients = (meals) => {
 //Load Data
 const loadData = () => {
     
-    //Load Data from cookies
-    mealsData = getMealDataFromCookie()
-    console.log()
+    //Load Data from local storage
+    mealsData = getMealDataFromLocalStorage()
 
-    //If no data, load default and set cookies
+    //If no data, load default and set local storage
     if (!mealsData) {
         mealsData = defaultMealsData
-        setMealsInCookie();
+        setMealsInLocalStorage();
     }
 }

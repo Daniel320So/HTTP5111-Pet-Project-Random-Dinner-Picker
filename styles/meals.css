@@ -125,6 +125,7 @@ h1 {
     flex-flow: column nowrap;
     width: 80%;
     gap: 40px;
+    margin-bottom: 40px;
 }
 
 .meal-summary {
@@ -206,6 +207,11 @@ h1 {
     width: 20px;
     height: 20px;
     cursor: pointer;
+}
+
+.page p{
+    margin: 0;
+    line-height: 1em;
 }
 
 .page--active {
