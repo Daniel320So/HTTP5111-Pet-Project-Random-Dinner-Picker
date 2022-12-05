@@ -191,7 +191,7 @@ const addMealSummary = (parentEleId, meal) => {
     const detailIngredients = `<div class="details-ingredient"><p class="details-text">Ingredients</p><p>${meal.mainIngredients.join(", ")}</p></div>`
     $(`#details-${meal.id}`).append(detailIngredients)
 
-    $(`img-${meal.id}`).on("click", function() {
+    $(`#img-${meal.id}`).on("click", function() {
         window.open(meal.url)
     })
 }

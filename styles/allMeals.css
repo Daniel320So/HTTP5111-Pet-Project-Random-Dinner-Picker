@@ -64,11 +64,11 @@ h1 {
     height: 300px;
     width: 100%;
     gap: 30px;
-    cursor: pointer;
 }
 
 .meal-image {
     flex: 2 0 0;
+    cursor: pointer;
 }
 
 .meal-image img{
