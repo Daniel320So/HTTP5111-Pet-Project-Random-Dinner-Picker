@@ -165,6 +165,33 @@ const getAllIngredients = (meals) => {
     return ingredients.sort();
 }
 
+// Add Meal Summary
+const addMealSummary = (parentEleId, meal) => {
+    const mealSummary = `<div class="meal-summary" id="summary-${meal.id}"></div>`
+    $(parentEleId).append(mealSummary);
+    const mealImage = `<div class="meal-image"><img src="${meal.getImageSrc()}" alt="An Image of ${meal.name}"></div>`
+    $(`#summary-${meal.id}`).append(mealImage)
+    const summary = `<div class="summary" id="sum-${meal.id}"></div>`
+    $(`#summary-${meal.id}`).append(summary)
+    $(`#sum-${meal.id}`).append(`<h3>${meal.name}</h3>`)
+
+    const details = `<div class="details" id="details-${meal.id}"></div>`
+    $(`#sum-${meal.id}`).append(details)
+
+    let detailsDiff = `<div class="details-diff"><p class="details-text">Difficulty</p>` + `<div class="stars">`
+    detailsDiff = detailsDiff + `<span class="fa fa-star checked"></span>`.repeat(meal.difficulty) + `<span class="fa fa-star"></span>`.repeat(5-meal.difficulty) + `</div></div>`
+    $(`#details-${meal.id}`).append(detailsDiff)
+
+    const detailsPrep = `<div class="details-prep"><p class="details-text">Prep Time</p><p>${meal.prepTime} mins</p></div>`
+    $(`#details-${meal.id}`).append(detailsPrep)
+
+    const detailServings = `<div class="details-servings"><p class="details-text">Servings</p><p>${meal.servings} People</p></div>`
+    $(`#details-${meal.id}`).append(detailServings)
+
+    const detailIngredients = `<div class="details-ingredient"><p class="details-text">Ingredients</p><p>${meal.mainIngredients.join(", ")}</p></div>`
+    $(`#details-${meal.id}`).append(detailIngredients)
+}
+
 //Load Data
 const loadData = () => {
     

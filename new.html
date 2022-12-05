@@ -26,6 +26,7 @@
         </header>
         <main>
             <h1>Add Your Receipes</h1>
+            <p id="errorText"></p>
             <form id="form-add">
                 <div id="form-input">
                     <div id="form-left">
@@ -54,7 +55,7 @@
                     <div id="form-right">
                         <div class="input-line">
                             <label for="input-prep">Prep Time</label>
-                            <input type="text" id="input-prep" name="input-prep">
+                            <input type="number" id="input-prep" name="input-prep">
                         </div>
                         <div class="input-line">
                             <label for="input-serve">Servings</label>
@@ -81,6 +82,8 @@
                 </div>
                 <input class="button" type="submit" id="submit-button" value="Add Meal">
             </form>
+            <div id="all-meals">
+            </div>
         </main>
         <footer>
             <p>Disclaimer: All recipes and images belong to www.simplyrecipes.com</p>

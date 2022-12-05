@@ -259,6 +259,91 @@ span {
     background: #E79853;
 }
 
+#errorText {
+    color: red;
+    font-size: 1em;
+    display: none;
+    margin: 0;
+}
+
+/* Meal Summary */
+#all-meals{
+    display: none;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 80%;
+    gap: 40px;
+    margin: 50px 0 250px 0;
+}
+
+.meal-summary {
+    display: flex;
+    flex-flow: row wrap;
+    height: 300px;
+    width: 100%;
+    gap: 30px;
+}
+
+.meal-image {
+    flex: 2 0 0;
+}
+
+.meal-image img{
+    width: 100%;
+    height: 300px;
+}
+
+.summary {
+    flex: 3 0 0;
+    border: 5px double #8A7061;
+    background: rgba(232, 225, 204, 0.5);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.summary h3 {
+    font-size: 1.75em;
+    color: #D86C2F;
+    margin-bottom: 10px;
+}
+
+.details {
+    display: flex;
+    flex-flow: column nowrap;
+
+}
+
+.details > div{
+    font-size: 1.25em;
+    font-family: 'Roboto', serif;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 50px;
+}
+
+.details > div > * {
+    margin: 10px 0;
+}
+
+
+.details-text {
+    width: 100px;
+    color: #843D15;
+}
+
+button {
+    width: 50%;
+    margin-top: 5px;
+    font-size: 1.5em;
+    color: #FCFCFC;
+    background: #E79853;
+    border-radius: 25px;
+    border-color: #E79853;
+    cursor: pointer;
+}
+
 /* Footer */
 footer {
     background-color: #DCD3C0;
