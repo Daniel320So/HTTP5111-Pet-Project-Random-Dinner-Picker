@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto&family=Roboto+Slab&display=swap');
+
+/* 1. General */
+html {
+    box-sizing: border-box;
+    font-family: 'Roboto Slab', serif;
+    font: 700 1em 'Roboto Slab';
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Header */
+
+header {
+    background-color: #DCD3C0;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    max-height: 64px;
+}
+
+#header-logo-container {
+    flex: 1 0 0;
+    margin-left: 50px;
+    max-height: 100%;
+}
+
+#main-navigation {
+    flex: 1 0 0;
+}
+
+.menu {
+    list-style-type: none;
+    display: flex; 
+    flex-flow: row nowrap;
+    align-items: center;
+    height: 100%;
+    margin-left: 200px;
+}
+
+header h3{
+    margin: 0;
+    font-size: 1.5em;
+    color: #624E44;
+}
+
+header li {
+    padding: 0 40px;
+}
+header li a{
+    font-size: 1.25em;
+    color: #686968;
+}
+
+/* Footer */
+footer {
+    background-color: #DCD3C0;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    max-height: 32px;
+    font-size: 0.75em;
+    font-weight: 300;
+}
