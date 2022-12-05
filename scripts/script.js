@@ -32,7 +32,6 @@ const getFilteredMeal = (filters) => {
 
 const loadPage = () => {
 
-    let picked = false;
     let pickedMeal = mealsData[0];
     let isFilterShown = false;
     let ingredientFilter = [];
@@ -85,7 +84,10 @@ const loadPage = () => {
         $("#image-container").find("img").attr("alt", `An image of ${pickedMeal.name}.`)
         $("#image-container").find("p").text(pickedMeal.name)
         $("#filter-container").hide();
-        picked = true;
+
+        if (slideShowInterval) {
+            slideShowInterval = clearInterval(slideShowInterval)
+        }
     })
 
     //add onclick to image
@@ -93,21 +95,21 @@ const loadPage = () => {
         window.open(pickedMeal.url)
     })
 
-    //add timer to slideshow
+    //add interval to slideshow
     const updatePicker = () => {
-        if (picked) return;
-        let currentMealId = Number($("#image-container")[0].attributes.name.value)
+        let currentMealId = $("#image-container").data("mealId")? $("#image-container").data("mealId") : 1
         let nextMealId = currentMealId == mealsData.length? 1 : currentMealId + 1
         const nextMeal = mealsData[nextMealId-1]
 
         $("#image-container").find("img").attr("src", nextMeal.getImageSrc())
         $("#image-container").find("img").attr("alt", `An image of ${nextMeal.name}.`)
         $("#image-container").find("p").text(nextMeal.name)
+        $("#image-container").data("mealId", nextMealId)
     }
 
-    setInterval(function() {
+    let slideShowInterval = setInterval(function() {
         updatePicker()
-    }, 3000);
+    }, 2000);
 }
 
 $(window).on("load", function (){
