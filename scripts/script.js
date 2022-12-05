@@ -41,7 +41,7 @@ const loadPage = () => {
     const ingredients = getAllIngredients()
     ingredients.map( ingredient => {
         let ingredientId = ingredient.replace(" ", "-")
-        let checkbox = `<div class="checkbox"><input type="checkbox" id="${ingredientId}" name="${ingredient}" value="${ingredient}"><label for="${ingredient}"> ${ingredient}</label></div>`;
+        let checkbox = `<div class="checkbox"><input type="checkbox" id="${ingredientId}" name="${ingredient}" value="${ingredient}"><label for="${ingredientId}"> ${ingredient}</label></div>`;
         $('#checkbox-container').append(checkbox);
         $(`#${ingredientId}`).change(function() {
             if(this.checked) {
@@ -84,7 +84,6 @@ const loadPage = () => {
         $("#image-container").find("img").attr("src", pickedMeal.getImageSrc())
         $("#image-container").find("img").attr("alt", `An image of ${pickedMeal.name}.`)
         $("#image-container").find("p").text(pickedMeal.name)
-        $("#image-container").attr("name", "picked-meal")
         $("#filter-container").hide();
         picked = true;
     })
@@ -104,8 +103,6 @@ const loadPage = () => {
         $("#image-container").find("img").attr("src", nextMeal.getImageSrc())
         $("#image-container").find("img").attr("alt", `An image of ${nextMeal.name}.`)
         $("#image-container").find("p").text(nextMeal.name)
-        $("#image-container").attr("name", nextMealId)
-
     }
 
     setInterval(function() {

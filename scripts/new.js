@@ -32,8 +32,8 @@ const updateImage = (event) => {
         $("#display-image").attr("src", newImage.imageSrc)
         $("#display-image").attr("alt", newImage.name)
         $("#display-image").addClass("image-show")
-        $("#display-image").show();
-        $("#select-text").hide();
+        $("#display-image").show()
+        $("#select-text").hide()
     });
     reader.readAsDataURL(newImage);
 }
