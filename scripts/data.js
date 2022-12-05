@@ -169,7 +169,7 @@ const getAllIngredients = (meals) => {
 const addMealSummary = (parentEleId, meal) => {
     const mealSummary = `<div class="meal-summary" id="summary-${meal.id}"></div>`
     $(parentEleId).append(mealSummary);
-    const mealImage = `<div class="meal-image"><img src="${meal.getImageSrc()}" alt="An Image of ${meal.name}"></div>`
+    const mealImage = `<div class="meal-image" id="img-${meal.id}"><img src="${meal.getImageSrc()}" alt="An Image of ${meal.name}"></div>`
     $(`#summary-${meal.id}`).append(mealImage)
     const summary = `<div class="summary" id="sum-${meal.id}"></div>`
     $(`#summary-${meal.id}`).append(summary)
@@ -190,6 +190,10 @@ const addMealSummary = (parentEleId, meal) => {
 
     const detailIngredients = `<div class="details-ingredient"><p class="details-text">Ingredients</p><p>${meal.mainIngredients.join(", ")}</p></div>`
     $(`#details-${meal.id}`).append(detailIngredients)
+
+    $(`img-${meal.id}`).on("click", function() {
+        window.open(meal.url)
+    })
 }
 
 //Load Data
