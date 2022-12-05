@@ -1,7 +1,7 @@
 /* Main */
 
 main {
-    background: url("../images/main_background.jfif") no-repeat;
+    background: url("../images/background/main_background.jfif") no-repeat;
     background-size: 100% auto;
     min-height: 900px;
 }

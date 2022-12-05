@@ -5,7 +5,7 @@ main {
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    background: url("../images/meals_background.jpg") no-repeat;
+    background: url("../images/background/allMeals_background.jpg") no-repeat;
     background-size: 100%;
 }
 
