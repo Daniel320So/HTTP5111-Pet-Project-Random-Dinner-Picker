@@ -79,10 +79,17 @@ const loadPage = () => {
 
     //add onclick to pick button
     $("#pick-button").on("click", function () {
-        pickedMeal = randomPicker(pickedMeal, ingredientFilter)
-        $("#image-container").find("img").attr("src", pickedMeal.getImageSrc())
-        $("#image-container").find("img").attr("alt", `An image of ${pickedMeal.name}.`)
-        $("#image-container").find("p").text(pickedMeal.name)
+
+        // Animate a random picking
+        for (let i = 0; i < 15; i++) {
+            setTimeout(function(){
+                pickedMeal = randomPicker(pickedMeal, ingredientFilter)
+                $("#image-container").find("img").attr("src", pickedMeal.getImageSrc())
+                $("#image-container").find("img").attr("alt", `An image of ${pickedMeal.name}.`)
+                $("#image-container").find("p").text(pickedMeal.name)
+            }, i * 100)
+        }
+
         $("#filter-container").hide();
 
         if (slideShowInterval) {

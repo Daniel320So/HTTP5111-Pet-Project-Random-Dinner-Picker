@@ -185,7 +185,8 @@ const addMealSummary = (parentEleId, meal) => {
     const detailsPrep = `<div class="details-prep"><p class="details-text">Prep Time</p><p>${meal.prepTime} mins</p></div>`
     $(`#details-${meal.id}`).append(detailsPrep)
 
-    const detailServings = `<div class="details-servings"><p class="details-text">Servings</p><p>${meal.servings} People</p></div>`
+    const detailServings = `<div class="details-servings"><p class="details-text">Servings</p><p>${meal.servings} ${meal.servings == 1? "Person": "People"}</p></div>`
+
     $(`#details-${meal.id}`).append(detailServings)
 
     const detailIngredients = `<div class="details-ingredient"><p class="details-text">Ingredients</p><p>${meal.mainIngredients.join(", ")}</p></div>`
