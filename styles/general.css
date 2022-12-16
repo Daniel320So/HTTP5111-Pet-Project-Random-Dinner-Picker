@@ -67,6 +67,19 @@ header li a{
     color: #686968;
 }
 
+/* Common Element */
+
+.summary-button {
+    width: 25%;
+    margin: 5px 0 15px 0;
+    font-size: 1.5em;
+    color: #FCFCFC;
+    background: #E79853;
+    border-radius: 25px;
+    border-color: #E79853;
+    cursor: pointer;
+}
+
 /* Footer */
 footer {
     background-color: #DCD3C0;
